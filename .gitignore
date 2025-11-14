@@ -1,0 +1,3 @@
+# Inside your .gitignore file
+local_settings.py
+env
