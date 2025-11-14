@@ -1,1 +1,2 @@
-web: gunicorn alx_travel_app_0x04__project.wsgi:application
+web: gunicorn alx_travel_app_0x04__project.wsgi --log-file -
+
