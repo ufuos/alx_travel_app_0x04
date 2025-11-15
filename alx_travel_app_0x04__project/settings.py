@@ -5,7 +5,7 @@ Updated for Django >=4.2,<5
 
 from pathlib import Path
 import os
-import dj_database_url   # ✅ Added for Render PostgreSQL
+import dj_database_url   # Added for Render PostgreSQL
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +26,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',   # ✅ Added for static files on Render
+    'whitenoise.middleware.WhiteNoiseMiddleware',   # Static on Render
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -63,7 +63,7 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-    # 👉 On Render, env vars will be used instead
+    # On Render, env vars will be used instead
 
 
 # ---------------------------------------------------------
@@ -92,9 +92,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
-USE_I18N = True       # ✔ still exists
-USE_TZ = True         # ✔ still exists
-# ❌ USE_L10N removed in Django 4.2
+USE_I18N = True
+USE_TZ = True
 
 
 # ---------------------------------------------------------
@@ -103,9 +102,13 @@ USE_TZ = True         # ✔ still exists
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
- 
- ALLOWED_HOSTS = [
+
+
+# ---------------------------------------------------------
+# Hosts
+# ---------------------------------------------------------
+ALLOWED_HOSTS = [
     ".onrender.com",
     "localhost",
+    "127.0.0.1",
 ]
-
