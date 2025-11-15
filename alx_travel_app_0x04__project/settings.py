@@ -103,3 +103,9 @@ USE_TZ = True         # ✔ still exists
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+ 
+ ALLOWED_HOSTS = [
+    ".onrender.com",
+    "localhost",
+]
+
